@@ -1,0 +1,35 @@
+﻿@model IEnumerable<ioliu.domain.SystemUser>
+@{
+    
+}
+<h2>dengfei</h2>
+<table>
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Remark)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var systemuser in Model)
+        {
+            <tr>
+                <th>@systemuser.UserName</th>
+                <th>@systemuser.LoginName</th>
+                <th>@systemuser.PassWorld</th>
+            </tr>
+        }
+    </tbody>
+
+</table>
+<div>
+<a asp-action="add" asp-controller="Resume">添加一个人</a>
+</div>
+
