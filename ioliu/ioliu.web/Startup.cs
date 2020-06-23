@@ -66,6 +66,7 @@ namespace ioliu.web
                 RequestPath="/node_modules",
                 FileProvider=new PhysicalFileProvider(Path.Combine(env.ContentRootPath, "node_modules"))
             });
+            app.UseStatusCodePagesWithReExecute("/error/{0}");
             app.UseMvc(route =>
             {
                 
