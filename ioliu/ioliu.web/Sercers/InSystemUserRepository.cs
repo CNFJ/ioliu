@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace ioliu.web.Sercers
 {
-    public class InResumeRepository:IResumeServers<SystemUser>
+    public class InSystemUserRepository:ISystemUserServers<SystemUser>
     {
         private readonly IoliuContext _ioliuContext;
         private  List<SystemUser> _systemUsers=new List<SystemUser>();
 
-        public InResumeRepository(IoliuContext ioliuContext)
+        public InSystemUserRepository(IoliuContext ioliuContext)
         {
             _ioliuContext = ioliuContext;
         }

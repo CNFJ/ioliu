@@ -20,5 +20,7 @@ namespace ioliu.domain
         public DateTime WorkEnd { get; set; }
         [Display(Name = "职位")]
         public string Position { get; set; }
+        
+        public int SystemUserId { get; set; }
     }
 }

@@ -10,9 +10,9 @@ namespace ioliu.web.Controllers
 {
     public class ResumeController : Controller
     {
-        private readonly IResumeServers<SystemUser> inResumeRepository;
+        private readonly ISystemUserServers<SystemUser> inResumeRepository;
 
-        public ResumeController(IResumeServers<SystemUser> inResumeRepository)
+        public ResumeController(ISystemUserServers<SystemUser> inResumeRepository)
         {
             this.inResumeRepository = inResumeRepository;
         }

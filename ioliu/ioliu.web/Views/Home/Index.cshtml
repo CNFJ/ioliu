@@ -1,35 +1,93 @@
-﻿@model IEnumerable<ioliu.domain.SystemUser>
+﻿@model IEnumerable<ioliu.domain.Work>
 @{
-    
-}
-<h2>dengfei</h2>
-<table>
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.UserName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Address)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Remark)
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var systemuser in Model)
-        {
-            <tr>
-                <th>@systemuser.UserName</th>
-                <th>@systemuser.LoginName</th>
-                <th>@systemuser.PassWorld</th>
-            </tr>
-        }
-    </tbody>
 
-</table>
-<div>
-<a asp-action="add" asp-controller="Resume">添加一个人</a>
-</div>
+}
+
+    <div class="col-md-6 col-md-offset-3">
+        <div class="ibox ">
+
+            <div class="ibox-content">
+                <div class="tab-content">
+                    <div id="contact-1" class="tab-pane active">
+                        <div class="row m-b-lg">
+                            <div class="col-lg-4 text-center">
+                                <h2>@ViewData["Name"]</h2>
+
+                                <div class="m-b-sm">
+                                    <img alt="image" class="img-circle" src="~/HAdmin/img/a2.jpg" style="width: 62px">
+                                </div>
+                            </div>
+                            <div class="col-lg-8">
+                                <h3>
+                                    个人简介
+                                </h3>
+
+                                <p>
+                                    @ViewData["Remark"]
+                                </p>
+                                <br>
+                                <button type="button" class="btn btn-primary btn-sm btn-block">
+                                    <i class="fa fa-envelope"></i> 发送消息
+                                </button>
+                            </div>
+                        </div>
+                        <div class="client-detail">
+                            <div class="full-height-scroll">
+
+                                <strong>当前动态</strong>
+
+                                <ul class="list-group clear-list">
+                                    <li class="list-group-item fist-item">
+                                        <span class="pull-right"> 09:00</span> 请联系我
+                                    </li>
+                                    <li class="list-group-item">
+                                        <span class="pull-right"> 10:16 </span> 签合同
+                                    </li>
+                                    <li class="list-group-item">
+                                        <span class="pull-right"> 08:22 </span> 开新公司
+                                    </li>
+                                    <li class="list-group-item">
+                                        <span class="pull-right"> 11:06 </span> 打电话给李四
+                                    </li>
+                                </ul>
+                                <strong>备注</strong>
+                                <p>
+                                    40亿影帝黄渤先生明明可以靠脸吃饭，可是他却偏偏靠才华，唱歌居然也这么好听！
+                                </p>
+                                <hr />
+                                <strong>时间轴</strong>
+                                <div id="vertical-timeline" class="vertical-container light-timeline">
+                                   
+                                    @if (Model!=null)
+                                    {
+                                        @foreach (var works in Model)
+                                        {
+                                            <div class="vertical-timeline-block">
+                                                <div class="vertical-timeline-icon yellow-bg">
+                                                    <i class="fa fa-phone"></i>
+                                                </div>
+
+                                                <div class="vertical-timeline-content">
+                                                    <h2>@works.CompanyName</h2>
+                                                    <p>@works.WorkContent</p>
+                                                    <span class="vertical-date">@works.WorkStart <br><small>@works.WorkEnd</small></span>
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <p>暂无相关经历</p>
+                                    }
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 

@@ -18,26 +18,42 @@ namespace ioliu.web
     public class HomeController : Controller
     {
 
-        private readonly IResumeServers<SystemUser> inResumeRepository;
+        private readonly ISystemUserServers<SystemUser> inResumeRepository;
+        private readonly IWorkServers<Work> workServers;
 
-
-        public HomeController(IResumeServers<SystemUser> inResumeRepository)
+        public HomeController(ISystemUserServers<SystemUser> inResumeRepository,IWorkServers<Work> workServers)
         {
             this.inResumeRepository = inResumeRepository;
-     
+            this.workServers = workServers;
         }
 
-        public InResumeRepository InResumeRepository { get; }
+      
 
         public IActionResult Index()
         {
 
 
-            if (inResumeRepository.GetAll().Count() > 0)
+            if (inResumeRepository.GetById(5)!=null)
             {
-                ViewData.Model = inResumeRepository.GetAll();
-
+                SystemUser systemUser = inResumeRepository.GetById(5);
+                ViewData["Name"] = systemUser.UserName;
+                ViewData["Remark"] = systemUser.Remark;
+                ViewData["Address"] = systemUser.Address;
+                ViewData["Phone"] = systemUser.Phone;
             }
+            if (workServers.GetAll().Where(i=>i.SystemUserId==5).Count()>0)
+            {
+                List<Work> works = workServers.GetAll().Where(i => i.SystemUserId == 5).ToList();
+                ViewData.Model = works;
+            }
+            return View();
+
+        }
+        public IActionResult Index_v1()
+        {
+
+
+           
             return View();
 
         }

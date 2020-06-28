@@ -42,7 +42,8 @@ namespace ioliu.web
             {
                 options.UseSqlServer(Configuration.GetConnectionString("MSSQL"));
             });
-            services.AddScoped<IResumeServers<SystemUser>, InResumeRepository>();
+            services.AddScoped<ISystemUserServers<SystemUser>, InSystemUserRepository>();
+            services.AddScoped<IWorkServers<Work>, InWorkRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
