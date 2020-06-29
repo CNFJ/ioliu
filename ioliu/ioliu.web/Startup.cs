@@ -55,6 +55,10 @@ namespace ioliu.web
             services.Configure<IdentityOptions>(Options =>
             {
                 Options.Password.RequireDigit = false;
+                Options.Password.RequiredLength = 1;
+                Options.Password.RequireLowercase = false;
+                Options.Password.RequireNonAlphanumeric = false;
+                Options.Password.RequireUppercase = false;
             });
         }
 

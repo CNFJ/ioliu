@@ -25,7 +25,7 @@ namespace ioliu.web.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(SystemUser systemUser)
         {
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 return View(systemUser);
             }
@@ -48,7 +48,7 @@ namespace ioliu.web.Controllers
         [HttpPost]
         public async Task<IActionResult> Register(SystemUser systemUser)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 var user = new IdentityUser
                 {
