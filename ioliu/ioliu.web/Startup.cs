@@ -9,6 +9,9 @@ using ioliu.web.Sercers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -42,8 +45,17 @@ namespace ioliu.web
             {
                 options.UseSqlServer(Configuration.GetConnectionString("MSSQL"));
             });
+
             services.AddScoped<ISystemUserServers<SystemUser>, InSystemUserRepository>();
             services.AddScoped<IWorkServers<Work>, InWorkRepository>();
+
+            services.AddDbContext<IdentityDbContext>(options =>  options.UseSqlServer(Configuration.GetConnectionString("MSSQL"), b => b.MigrationsAssembly("ioliu.web"))) ;
+
+            services.AddDefaultIdentity<IdentityUser>().AddEntityFrameworkStores<IdentityDbContext>();
+            services.Configure<IdentityOptions>(Options =>
+            {
+                Options.Password.RequireDigit = false;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -68,6 +80,7 @@ namespace ioliu.web
                 FileProvider=new PhysicalFileProvider(Path.Combine(env.ContentRootPath, "node_modules"))
             });
             app.UseStatusCodePagesWithReExecute("/error/{0}");
+            app.UseAuthentication();
             app.UseMvc(route =>
             {
                 

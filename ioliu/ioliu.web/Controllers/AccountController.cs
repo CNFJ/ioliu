@@ -1,0 +1,72 @@
+﻿using ioliu.domain;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace ioliu.web.Controllers
+{
+    public class AccountController:Controller
+    {
+        private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly UserManager<IdentityUser> _userManager;
+
+        public AccountController(SignInManager<IdentityUser> signInManager, UserManager<IdentityUser> userManager)
+        {
+            _signInManager = signInManager;
+            _userManager = userManager;
+        }
+        public IActionResult Login()
+        {
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> Login(SystemUser systemUser)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(systemUser);
+            }
+            var user = await _userManager.FindByNameAsync(systemUser.UserName);
+            if (user != null)
+            {
+                var result = await _signInManager.PasswordSignInAsync(user, systemUser.PassWorld, false, false);
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+            }
+            return View(systemUser);
+        }
+
+        public IActionResult Register()
+        {
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> Register(SystemUser systemUser)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = new IdentityUser
+                {
+                    UserName = systemUser.UserName
+                };
+                var result = await _userManager.CreateAsync(user, systemUser.PassWorld);
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+            }
+
+            return View(systemUser);
+        }
+        public  async Task<IActionResult> LoginOut()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Index", "Home");
+        }
+    }
+}
