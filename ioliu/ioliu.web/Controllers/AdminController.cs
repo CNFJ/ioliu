@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using ioliu.data;
 using ioliu.domain;
 using ioliu.web.Sercers;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ioliu.web.Controllers
@@ -19,7 +20,7 @@ namespace ioliu.web.Controllers
            
             this.systemUserServers = systemUserServers;
         }
-
+        [Authorize]
         public IActionResult Index()
         {
             
@@ -29,9 +30,9 @@ namespace ioliu.web.Controllers
 
         public IActionResult PersonalInformation()
         {
-            if (systemUserServers.GetById(5) != null)
+            if (systemUserServers.GetByUserName("df") != null)
             {
-                ViewData.Model = systemUserServers.GetById(5);
+                ViewData.Model = systemUserServers.GetByUserName("df");
             }
             return View();
         }

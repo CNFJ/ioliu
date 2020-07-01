@@ -3,7 +3,7 @@
 <form method="post">
 
     <input asp-for="UserName" /><br />
-    <input asp-for="PassWorld" /><br />
+    <input asp-for="PasswordHash" /><br />
     <input asp-for="LoginName" /><br />
     <input asp-for="Birth" type="date" /><br />
     <select asp-for="Sex" asp-items="Html.GetEnumSelectList<ioliu.domain.SystemUser.sex>()"></select><br />

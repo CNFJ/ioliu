@@ -10,10 +10,10 @@ namespace ioliu.web.Controllers
 {
     public class AccountController:Controller
     {
-        private readonly SignInManager<IdentityUser> _signInManager;
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly SignInManager<SystemUser> _signInManager;
+        private readonly UserManager<SystemUser> _userManager;
 
-        public AccountController(SignInManager<IdentityUser> signInManager, UserManager<IdentityUser> userManager)
+        public AccountController(SignInManager<SystemUser> signInManager, UserManager<SystemUser> userManager)
         {
             _signInManager = signInManager;
             _userManager = userManager;
@@ -25,14 +25,14 @@ namespace ioliu.web.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(SystemUser systemUser)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return View(systemUser);
             }
             var user = await _userManager.FindByNameAsync(systemUser.UserName);
             if (user != null)
             {
-                var result = await _signInManager.PasswordSignInAsync(user, systemUser.PassWorld, false, false);
+                var result = await _signInManager.PasswordSignInAsync(user, systemUser.PasswordHash, false, false);
                 if (result.Succeeded)
                 {
                     return RedirectToAction("Index", "Home");
@@ -48,13 +48,13 @@ namespace ioliu.web.Controllers
         [HttpPost]
         public async Task<IActionResult> Register(SystemUser systemUser)
         {
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                var user = new IdentityUser
+                var user = new SystemUser
                 {
                     UserName = systemUser.UserName
                 };
-                var result = await _userManager.CreateAsync(user, systemUser.PassWorld);
+                var result = await _userManager.CreateAsync(user, systemUser.PasswordHash);
                 if (result.Succeeded)
                 {
                     return RedirectToAction("Index", "Home");
@@ -63,7 +63,7 @@ namespace ioliu.web.Controllers
 
             return View(systemUser);
         }
-        public  async Task<IActionResult> LoginOut()
+        public  async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
             return RedirectToAction("Index", "Home");

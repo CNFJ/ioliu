@@ -1,0 +1,70 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@using ioliu.domain;
+@model IEnumerable< SystemUser>
+@{
+}
+<div class="row">
+    <div class="col-md-12">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>用户列表</h5>
+                <div class="ibox-tools">
+                    <a asp-action="AddUser" asp-controller="User" class="btn btn-info"><i class="fa fa-close"></i>添加用户</a>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="ibox-content">
+            <input type="text" class="form-control input-sm m-b-xs" id="filter" placeholder="请输入搜索内容"/>
+       <table class="footable table table-striped" data-page-size="8" data-filter="#filter">
+           <thead>
+               <tr>
+                   <th>姓名</th>
+                   <th>性别</th>
+                   <th>年龄</th>
+                   <th>出生日期</th>
+                   <th>地址</th>
+                   <th>电话号码</th>
+                   <th>身份证号码</th>
+                   <th>民族</th>
+                   <th>操作</th>
+               </tr>
+           </thead>
+           <tbody>
+               @foreach(var user in Model)
+               {
+               <tr class="gradeX">
+                   <td>@user.UserName</td>
+                   <td>@user.Sex</td>
+                   <td>@user.Age</td>
+                   <td>@user.Birth</td>
+                   <td>@user.Address</td>
+                   <td>@user.Phone</td>
+                   <td>@user.IDCard</td>
+                   <td>@user.Nation</td>
+                   <td class="center-orientation">
+                   <a asp-action="EditUser" asp-controller="User" class="btn btn-info"><i class="fa fa-close"></i>编辑</a>
+                       <form asp-action="DelUser" asp-controller="User" asp-route-id="@user.Id" method="post">
+                           <button type="submit" class="btn btn-danger" onclick="return confirm('确认删除')">删除</button>
+                       </form>
+                   @*<a asp-action="DelUser" asp-controller="User"  class="btn btn-warning"><i class="fa fa-paste"></i>删除</a>*@
+                   </td>
+               </tr>
+               }
+               
+           </tbody>
+           <tfoot>
+               <tr>
+                   <td colspan="5">
+                       <ul class="pagination pull-right"></ul>
+                   </td>
+               </tr>
+           </tfoot>
+       </table>
+        </div>
+    </div>
+
+</div>

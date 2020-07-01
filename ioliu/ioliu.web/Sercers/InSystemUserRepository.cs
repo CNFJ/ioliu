@@ -31,9 +31,9 @@ namespace ioliu.web.Sercers
             _systemUsers = _ioliuContext.systemUsers.ToList();
             return _systemUsers;
         }
-        public SystemUser GetById(int id)
+        public SystemUser GetByUserName(string userName)
         {
-            return _ioliuContext.systemUsers.Find(id);
+            return _ioliuContext.systemUsers.Single(name=>name.UserName==userName);
         }
     }
 }

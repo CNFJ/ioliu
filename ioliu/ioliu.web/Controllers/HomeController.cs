@@ -33,19 +33,7 @@ namespace ioliu.web
         {
 
 
-            if (inResumeRepository.GetById(5)!=null)
-            {
-                SystemUser systemUser = inResumeRepository.GetById(5);
-                ViewData["Name"] = systemUser.UserName;
-                ViewData["Remark"] = systemUser.Remark;
-                ViewData["Address"] = systemUser.Address;
-                ViewData["Phone"] = systemUser.Phone;
-            }
-            if (workServers.GetAll().Where(i=>i.SystemUserId==5).Count()>0)
-            {
-                List<Work> works = workServers.GetAll().Where(i => i.SystemUserId == 5).ToList();
-                ViewData.Model = works;
-            }
+         
             return View();
 
         }

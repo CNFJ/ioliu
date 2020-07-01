@@ -8,7 +8,7 @@ namespace ioliu.web.Sercers
 {
     public interface ISystemUserServers<T> where T:class
     {
-         SystemUser GetById(int id);
+         SystemUser GetByUserName(string userName);
          IEnumerable<T> GetAll();
 
          SystemUser Add(T newModel);

@@ -49,17 +49,17 @@ namespace ioliu.web
             services.AddScoped<ISystemUserServers<SystemUser>, InSystemUserRepository>();
             services.AddScoped<IWorkServers<Work>, InWorkRepository>();
 
-            services.AddDbContext<IdentityDbContext>(options =>  options.UseSqlServer(Configuration.GetConnectionString("MSSQL"), b => b.MigrationsAssembly("ioliu.web"))) ;
+            services.AddDbContext<ApplicationDbContext>(options =>  options.UseSqlServer(Configuration.GetConnectionString("MSSQL"), b => b.MigrationsAssembly("ioliu.data"))) ;
 
-            services.AddDefaultIdentity<IdentityUser>().AddEntityFrameworkStores<IdentityDbContext>();
-            services.Configure<IdentityOptions>(Options =>
+            services.AddDefaultIdentity<SystemUser>(Options =>
             {
                 Options.Password.RequireDigit = false;
                 Options.Password.RequiredLength = 1;
                 Options.Password.RequireLowercase = false;
                 Options.Password.RequireNonAlphanumeric = false;
                 Options.Password.RequireUppercase = false;
-            });
+            }).AddEntityFrameworkStores<ApplicationDbContext>();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

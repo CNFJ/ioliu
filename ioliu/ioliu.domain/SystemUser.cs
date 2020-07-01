@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+using Microsoft.AspNetCore.Identity;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.Contracts;
@@ -6,19 +8,15 @@ using System.Runtime.CompilerServices;
 
 namespace ioliu.domain
 {
-    public class SystemUser
+    public class SystemUser:IdentityUser
     {
         public SystemUser(){
             Educations = new List<Education>();
             Works = new List<Work>();
 }
-        public int Id { get; set; }
-        [Required,Display(Name ="用户名"),MaxLength(24)]
         
-        public string UserName { get; set; }
-        [Required,Display(Name ="密码"),MaxLength(512),DataType(DataType.Password)]
-        public string PassWorld { get; set; }
-        [Required,Display(Name ="登录名"),MaxLength(128)]
+        public string PassWord { get; set; }
+       
         public string LoginName { get; set; }
         [Display(Name ="状态")]
         public string State { get; set; }
