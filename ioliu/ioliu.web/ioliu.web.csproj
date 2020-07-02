@@ -24,10 +24,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ViewModel\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Include="Views\Error\Error404.cshtml" />
     <None Include="wwwroot\HAdmin\css\plugins\blueimp\img\error.svg" />
     <None Include="wwwroot\HAdmin\css\plugins\blueimp\img\play-pause.svg" />

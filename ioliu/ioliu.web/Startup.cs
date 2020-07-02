@@ -51,7 +51,7 @@ namespace ioliu.web
 
             services.AddDbContext<ApplicationDbContext>(options =>  options.UseSqlServer(Configuration.GetConnectionString("MSSQL"), b => b.MigrationsAssembly("ioliu.data"))) ;
 
-            services.AddDefaultIdentity<SystemUser>(Options =>
+            services.AddIdentity<SystemUser,IdentityRole>(Options =>
             {
                 Options.Password.RequireDigit = false;
                 Options.Password.RequiredLength = 1;
