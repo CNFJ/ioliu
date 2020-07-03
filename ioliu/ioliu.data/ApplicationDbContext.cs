@@ -13,5 +13,12 @@ namespace ioliu.data
         {
            
         }
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder.Entity<SystemUser>(b =>
+            {
+                b.HasMany
+            });
+        }
     }
 }

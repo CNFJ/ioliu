@@ -43,8 +43,15 @@ namespace ioliu.domain
        
         public List<Education> Educations { get; set; }
         public List<Work> Works { get; set; }
+        public virtual ICollection<IdentityUserClaim<string>> Claims { get; set; }
 
-       public enum sex
+        public virtual ICollection<IdentityUserLogin<string>> Logins { get; set; }
+
+        public virtual ICollection<IdentityUserToken<string>> Tokens { get; set; }
+
+        public virtual ICollection<IdentityUserRole<string>> UserRoles { get; set; }
+
+        public enum sex
         {
             男=1,
             女=2

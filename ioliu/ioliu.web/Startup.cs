@@ -48,7 +48,10 @@ namespace ioliu.web
 
             services.AddScoped<ISystemUserServers<SystemUser>, InSystemUserRepository>();
             services.AddScoped<IWorkServers<Work>, InWorkRepository>();
-
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("仅限管理员", policy => policy.RequireRole("Administrators"));
+            });
             services.AddDbContext<ApplicationDbContext>(options =>  options.UseSqlServer(Configuration.GetConnectionString("MSSQL"), b => b.MigrationsAssembly("ioliu.data"))) ;
 
             services.AddIdentity<SystemUser,IdentityRole>(Options =>
