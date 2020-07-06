@@ -35,5 +35,11 @@ namespace ioliu.web.Sercers
         {
             return _ioliuContext.systemUsers.Single(name=>name.UserName==userName);
         }
+        public SystemUser Update(SystemUser systemUser)
+        {
+            _ioliuContext.systemUsers.Update(systemUser);
+            _ioliuContext.SaveChanges();
+            return systemUser;
+        }
     }
 }

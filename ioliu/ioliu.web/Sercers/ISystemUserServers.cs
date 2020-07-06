@@ -13,5 +13,7 @@ namespace ioliu.web.Sercers
 
          SystemUser Add(T newModel);
 
+        SystemUser Update(T newModel);
+
     }
 }

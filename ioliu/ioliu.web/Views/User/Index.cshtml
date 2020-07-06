@@ -46,8 +46,9 @@
                    <td>@user.IDCard</td>
                    <td>@user.Nation</td>
                    <td class="center-orientation">
-                   <a asp-action="EditUser" asp-controller="User" asp-route-Id="@user.Idnade" class="btn btn-info"><i class="fa fa-close"></i>编辑</a>
+                  
                        <form asp-action="DelUser" asp-controller="User" asp-route-id="@user.Id" method="post">
+                           <a asp-action="EditUser" asp-controller="User" asp-route-Id="@user.Id" class="btn btn-info"><i class="fa fa-close"></i>编辑</a>
                            <button type="submit" class="btn btn-danger" onclick="return confirm('确认删除')">删除</button>
                        </form>
                    @*<a asp-action="DelUser" asp-controller="User"  class="btn btn-warning"><i class="fa fa-paste"></i>删除</a>*@

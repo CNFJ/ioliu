@@ -15,9 +15,23 @@ namespace ioliu.data
         }
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            base.OnModelCreating(builder);
             builder.Entity<SystemUser>(b =>
             {
-                b.HasMany
+                b.HasMany(e => e.Claims).WithOne().HasForeignKey(uc => uc.UserId)
+                .IsRequired();
+                b.HasMany(e => e.Logins)
+                .WithOne()
+                .HasForeignKey(ul => ul.UserId)
+                .IsRequired();
+                b.HasMany(e => e.Tokens)
+                .WithOne()
+                .HasForeignKey(ut => ut.UserId)
+                .IsRequired();
+                b.HasMany(e => e.UserRoles)
+                .WithOne()
+                .HasForeignKey(ur => ur.UserId)
+                .IsRequired();
             });
         }
     }

@@ -11,6 +11,8 @@ using Microsoft.AspNetCore.Mvc;
 using System.Reflection.Metadata.Ecma335;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using ioliu.web.ViewModel;
+using ioliu.web.Model;
+using ioliu.web.Sercers;
 
 namespace ioliu.web.Controllers
 {
@@ -18,10 +20,12 @@ namespace ioliu.web.Controllers
     public class UserController : Controller
     {
         private readonly UserManager<SystemUser> userManager;
+        private readonly ISystemUserServers<SystemUser> systemUserServers;
 
-        public UserController(UserManager<SystemUser> userManager)
+        public UserController(UserManager<SystemUser> userManager,ISystemUserServers<SystemUser> systemUserServers) 
         {
             this.userManager = userManager;
+            this.systemUserServers = systemUserServers;
         }
 
         public   IActionResult Index()
@@ -39,6 +43,7 @@ namespace ioliu.web.Controllers
             var claims = await userManager.GetClaimsAsync(user);
             var vm = new UserEditViewModel
             {
+                UserId=user.Id,
                 Birth=user.Birth,
                 UserName=user.UserName,
                 Sex=user.Sex,
@@ -51,7 +56,36 @@ namespace ioliu.web.Controllers
             };
             return View(vm);
         }
-        public IActionResult AddUser()
+        [HttpPost]
+        public async Task<IActionResult> EditUser(UserEditViewModel userEditViewModel)
+        {
+            var user = await userManager.FindByIdAsync(userEditViewModel.Id);
+            if (user != null)
+            {
+                user.UserName = userEditViewModel.UserName;
+                user.Birth = userEditViewModel.Birth;
+                user.Phone = userEditViewModel.Phone;
+                user.Address = userEditViewModel.Address;
+                
+                var result =await userManager.UpdateAsync(user);
+
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    foreach(var erroer in result.Errors)
+                    {
+                        ModelState.AddModelError(string.Empty, erroer.Description);
+                    }
+                    return View(userEditViewModel);
+                }
+            }
+            return View(userEditViewModel);
+
+        }
+            public IActionResult AddUser()
         {
             return View();
         }
@@ -109,16 +143,17 @@ namespace ioliu.web.Controllers
             }
             return View("Index");
         }
-        public async Task<IActionResult> ManageClaims(string id)
+        public async Task<IActionResult> ManageClaims(string userId)
         {
-            var user = await userManager.FindByIdAsync(id);
+            var user = await userManager.FindByIdAsync(userId);
             if (user == null)
             {
                 return RedirectToAction("Index");
             }
             var vm = new ManageViewModel
             {
-                UserId = id
+                UserId = userId,
+                AllClaims=ClaimTypes.AllClaimTypeList
             };
             return View(vm);
         }

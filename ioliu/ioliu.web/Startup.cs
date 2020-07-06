@@ -5,7 +5,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using ioliu.data;
 using ioliu.domain;
+using ioliu.web.Auth;
 using ioliu.web.Sercers;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -51,7 +53,14 @@ namespace ioliu.web
             services.AddAuthorization(options =>
             {
                 options.AddPolicy("仅限管理员", policy => policy.RequireRole("Administrators"));
-            });
+                options.AddPolicy("编辑信息", policy => policy.RequireClaim("Edit Albums", new List<string> { "123", "456" }));
+                options.AddPolicy("编辑信息2", policy => policy.AddRequirements(
+                    new EmailRequirement("@126.com"),
+                    new EmailRequirement("@qq.com")
+                     ));
+           
+                });
+            services.AddSingleton<IAuthorizationHandler, EmailHandler>();
             services.AddDbContext<ApplicationDbContext>(options =>  options.UseSqlServer(Configuration.GetConnectionString("MSSQL"), b => b.MigrationsAssembly("ioliu.data"))) ;
 
             services.AddIdentity<SystemUser,IdentityRole>(Options =>

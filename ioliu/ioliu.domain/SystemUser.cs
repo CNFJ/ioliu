@@ -13,6 +13,9 @@ namespace ioliu.domain
         public SystemUser(){
             Educations = new List<Education>();
             Works = new List<Work>();
+            Claims = new List<IdentityUserClaim<string>>();
+            Logins = new List<IdentityUserLogin<string>>();
+            Tokens = new List<IdentityUserToken<string>>();
 }
         
         public string PassWord { get; set; }
