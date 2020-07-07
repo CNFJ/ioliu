@@ -55,12 +55,15 @@ namespace ioliu.web
                 options.AddPolicy("仅限管理员", policy => policy.RequireRole("Administrators"));
                 options.AddPolicy("编辑信息", policy => policy.RequireClaim("Edit Albums", new List<string> { "123", "456" }));
                 options.AddPolicy("编辑信息2", policy => policy.AddRequirements(
-                    new EmailRequirement("@126.com"),
-                    new EmailRequirement("@qq.com")
+                   
+                    new QualifiedUserRequirement()
                      ));
            
                 });
             services.AddSingleton<IAuthorizationHandler, EmailHandler>();
+            services.AddSingleton<IAuthorizationHandler,AdministratorsHandler>();
+            services.AddSingleton<IAuthorizationHandler, CanEditAlbumHandler>();
+
             services.AddDbContext<ApplicationDbContext>(options =>  options.UseSqlServer(Configuration.GetConnectionString("MSSQL"), b => b.MigrationsAssembly("ioliu.data"))) ;
 
             services.AddIdentity<SystemUser,IdentityRole>(Options =>

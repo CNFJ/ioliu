@@ -16,7 +16,7 @@ using ioliu.web.Sercers;
 
 namespace ioliu.web.Controllers
 {
-    [Authorize]
+    [Authorize(Policy = "编辑信息2")]
     public class UserController : Controller
     {
         private readonly UserManager<SystemUser> userManager;
