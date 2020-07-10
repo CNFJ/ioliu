@@ -1,14 +1,10 @@
-﻿using ioliu.data;
-using ioliu.domain;
+﻿using ioliu.domain;
 using ioliu.web.Sercers;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.FileSystemGlobbing.Abstractions;
 using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -20,11 +16,15 @@ namespace ioliu.web
 
         private readonly ISystemUserServers<SystemUser> inResumeRepository;
         private readonly IWorkServers<Work> workServers;
+        private readonly IHostingEnvironment hostingEnvironment;
+        private readonly IImgServers<Img> imgServers;
 
-        public HomeController(ISystemUserServers<SystemUser> inResumeRepository,IWorkServers<Work> workServers)
+        public HomeController(ISystemUserServers<SystemUser> inResumeRepository,IWorkServers<Work> workServers,IHostingEnvironment hostingEnvironment,IImgServers<Img> imgServers)
         {
             this.inResumeRepository = inResumeRepository;
             this.workServers = workServers;
+            this.hostingEnvironment = hostingEnvironment;
+            this.imgServers = imgServers;
         }
 
       
@@ -37,6 +37,7 @@ namespace ioliu.web
             return View();
 
         }
+       
         public IActionResult Index_v1()
         {
 
@@ -50,11 +51,15 @@ namespace ioliu.web
         {
             long size = files.Sum(f => f.Length);
             var filess = Request.Form.Files;
+            try {
             foreach (var formFile in files)
             {
                 if (formFile.Length > 0)
                 {
-                    var filePath = Path.Combine("C:\\pic\\",Path.GetRandomFileName()+".jpg");
+                    var pathroot = hostingEnvironment.WebRootPath;
+                    var fileNmae = Path.GetRandomFileName();
+                    var pathFile= "\\static\\img\\"+ fileNmae + ".jpg";
+                    var filePath = Path.Combine(pathroot + pathFile);
 
                     using (var stream = System.IO.File.Create(filePath))
                     {
@@ -63,20 +68,34 @@ namespace ioliu.web
                         //Path.GetTempFileName(filePath);
                             
                     }
+                    var imgmdeol = new Img
+                    {
+                        imgName = fileNmae,
+                        imgPath=pathFile,
+                        GroupName="Test"
+                    };
+                    await imgServers.AddImg(imgmdeol);
+                    
                 }
                
             }
+            }catch(Exception ex)
+            {
+                return View(ex.Message);
+            }
 
-            return Ok(new { count=files.Count,size});
+            return View();
         }
         [HttpGet]
         public IActionResult UPFile()
         {
-            return View();
+            var imgModel = imgServers.GetImgAll();
+            return View(imgModel);
         }
         public IActionResult Albums()
         {
-            return View();
+            var imgModel = imgServers.GetImgAll();
+            return View(imgModel);
         }
         
     }

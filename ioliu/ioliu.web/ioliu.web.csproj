@@ -269,4 +269,8 @@
     <None Include="wwwroot\HAdmin\js\plugins\webuploader\webuploader.withoutimage.min.js" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\static\img\" />
+  </ItemGroup>
+
 </Project>

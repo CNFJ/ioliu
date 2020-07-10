@@ -62,17 +62,36 @@ namespace ioliu.data.Migrations
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("SystemUserId")
-                        .HasColumnType("int");
-
                     b.Property<string>("arrangement")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("id");
 
-                    b.HasIndex("SystemUserId");
-
                     b.ToTable("educations");
+                });
+
+            modelBuilder.Entity("ioliu.domain.Img", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("GroupName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("imgName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("imgPath")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("id");
+
+                    b.ToTable("imgs");
                 });
 
             modelBuilder.Entity("ioliu.domain.Resume", b =>
@@ -85,66 +104,6 @@ namespace ioliu.data.Migrations
                     b.HasKey("id");
 
                     b.ToTable("resumes");
-                });
-
-            modelBuilder.Entity("ioliu.domain.SystemUser", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Address")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Age")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("Birth")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("CreateTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("IDCard")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LoginName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(128)")
-                        .HasMaxLength(128);
-
-                    b.Property<string>("Nation")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PassWorld")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(512)")
-                        .HasMaxLength(512);
-
-                    b.Property<string>("Phone")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Remark")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Sex")
-                        .HasColumnType("int");
-
-                    b.Property<string>("State")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("UpdateTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("UserName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(24)")
-                        .HasMaxLength(24);
-
-                    b.HasKey("Id");
-
-                    b.ToTable("systemUsers");
                 });
 
             modelBuilder.Entity("ioliu.domain.Work", b =>
@@ -177,25 +136,7 @@ namespace ioliu.data.Migrations
 
                     b.HasKey("id");
 
-                    b.HasIndex("SystemUserId");
-
                     b.ToTable("works");
-                });
-
-            modelBuilder.Entity("ioliu.domain.Education", b =>
-                {
-                    b.HasOne("ioliu.domain.SystemUser", null)
-                        .WithMany("Educations")
-                        .HasForeignKey("SystemUserId");
-                });
-
-            modelBuilder.Entity("ioliu.domain.Work", b =>
-                {
-                    b.HasOne("ioliu.domain.SystemUser", null)
-                        .WithMany("Works")
-                        .HasForeignKey("SystemUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

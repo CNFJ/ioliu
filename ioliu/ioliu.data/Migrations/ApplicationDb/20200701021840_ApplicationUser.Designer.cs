@@ -98,6 +98,7 @@ namespace ioliu.data.Migrations.ApplicationDb
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
+                    b.HasNoKey();
                     b.Property<string>("LoginProvider")
                         .HasColumnType("nvarchar(128)")
                         .HasMaxLength(128);
@@ -113,8 +114,8 @@ namespace ioliu.data.Migrations.ApplicationDb
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.HasKey("LoginProvider", "ProviderKey");
-
+                  //  b.HasKey("LoginProvider", "ProviderKey");
+                    
                     b.HasIndex("UserId");
 
                     b.ToTable("AspNetUserLogins");
@@ -380,7 +381,9 @@ namespace ioliu.data.Migrations.ApplicationDb
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
+                        
                         .IsRequired();
+                    
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>

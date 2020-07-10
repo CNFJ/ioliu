@@ -21,23 +21,23 @@ namespace ioliu.web.Sercers
         {
             systemUser.CreateTime = DateTime.Now;
             systemUser.UpdateTime = DateTime.Now;
-            _ioliuContext.systemUsers.Add(systemUser);
+           // _ioliuContext.systemUsers.Add(systemUser);
             _ioliuContext.SaveChanges();
             return systemUser;
         }
 
         public IEnumerable<SystemUser> GetAll()
         {
-            _systemUsers = _ioliuContext.systemUsers.ToList();
+           // _systemUsers = _ioliuContext.systemUsers.ToList();
             return _systemUsers;
         }
         public SystemUser GetByUserName(string userName)
         {
-            return _ioliuContext.systemUsers.Single(name=>name.UserName==userName);
+            return null;
         }
         public SystemUser Update(SystemUser systemUser)
         {
-            _ioliuContext.systemUsers.Update(systemUser);
+           // _ioliuContext.systemUsers.Update(systemUser);
             _ioliuContext.SaveChanges();
             return systemUser;
         }

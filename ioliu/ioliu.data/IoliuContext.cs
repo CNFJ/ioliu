@@ -14,9 +14,10 @@ namespace ioliu.data
         {
            
         }
-        public DbSet<SystemUser> systemUsers { get; set; }
+        //public DbSet<SystemUser> systemUsers { get; set; }
         public DbSet<Resume> resumes { get; set; }
         public DbSet<Education> educations { get; set; }
         public DbSet<Work> works { get; set; }
+        public DbSet<Img> imgs { get; set; }
     }
 }
