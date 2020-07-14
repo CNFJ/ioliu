@@ -267,6 +267,28 @@
     <None Include="wwwroot\HAdmin\js\plugins\webuploader\webuploader.nolog.min.js" />
     <None Include="wwwroot\HAdmin\js\plugins\webuploader\webuploader.withoutimage.js" />
     <None Include="wwwroot\HAdmin\js\plugins\webuploader\webuploader.withoutimage.min.js" />
+    <None Include="wwwroot\resume\fonts\materialdesignicons-webfont.woff2" />
+    <None Include="wwwroot\resume\images\aboutus\01.svg" />
+    <None Include="wwwroot\resume\images\aboutus\02.svg" />
+    <None Include="wwwroot\resume\images\aboutus\03.svg" />
+    <None Include="wwwroot\resume\images\aboutus\RFID标签日志.svg" />
+    <None Include="wwwroot\resume\images\aboutus\分析指挥.svg" />
+    <None Include="wwwroot\resume\images\aboutus\摄像头.svg" />
+    <None Include="wwwroot\resume\images\aboutus\教育培训.svg" />
+    <None Include="wwwroot\resume\images\aboutus\数据中心.svg" />
+    <None Include="wwwroot\resume\images\slider-img\network.svg" />
+    <None Include="wwwroot\resume\js\bootstrap.min.js" />
+    <None Include="wwwroot\resume\js\isotope.pkgd.min.js" />
+    <None Include="wwwroot\resume\js\jquery.counterup.js" />
+    <None Include="wwwroot\resume\js\jquery.easing.min.js" />
+    <None Include="wwwroot\resume\js\jquery.magnific-popup.min.js" />
+    <None Include="wwwroot\resume\js\jquery.min.js" />
+    <None Include="wwwroot\resume\js\jquery.waypoints.min.js" />
+    <None Include="wwwroot\resume\js\main.js" />
+    <None Include="wwwroot\resume\js\owl.carousel.min.js" />
+    <None Include="wwwroot\resume\js\particles.js" />
+    <None Include="wwwroot\resume\js\popper.min.js" />
+    <None Include="wwwroot\resume\js\typed.min.js" />
   </ItemGroup>
 
   <ItemGroup>

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using ioliu.data;
 using ioliu.domain;
 using ioliu.web.Auth;
+using ioliu.web.Hubs;
 using ioliu.web.Sercers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
@@ -40,7 +41,10 @@ namespace ioliu.web
                 options.EnableEndpointRouting = false;
             }
                 );
-          
+            #region SignalRCore
+            services.AddSignalRCore();
+            services.AddSingleton<CountService>();
+            #endregion
             services.AddRazorPages();
             
             services.AddDbContext<IoliuContext>(options =>
@@ -108,10 +112,15 @@ namespace ioliu.web
                     name:"default",
                     template: "{controller=Home}/{action=index}/{id?}"
                     );
+                
+               
             });
-            
+            //app.UseEndpoints(endpoints =>
+            //{
+            //    endpoints.MapHub<CountHub>("/counthub");
+            //});
 
-            app.UseAuthorization();
+            
 
            
         }
