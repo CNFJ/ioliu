@@ -98,6 +98,7 @@ namespace ioliu.web
             
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+
             app.UseStaticFiles(new StaticFileOptions
             {
                 RequestPath="/node_modules",
@@ -110,7 +111,7 @@ namespace ioliu.web
                 
                 route.MapRoute(
                     name:"default",
-                    template: "{controller=Home}/{action=index}/{id?}"
+                    template: "{controller=Home}/{action=index_v1}/{id?}"
                     );
                 
                
