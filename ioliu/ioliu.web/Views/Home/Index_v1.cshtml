@@ -26,7 +26,7 @@
     <!-- Carousel Slider -->
     <link rel="stylesheet" href="~/resume/css/owl.carousel.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600&display=swap" rel="stylesheet">
+    @*<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600&display=swap" rel="stylesheet">*@
     <!-- Custom  CSS -->
     <link rel="stylesheet" href="~/resume/css/style.css">
 </head>
@@ -51,7 +51,7 @@
         </div>
         <header>
             <div class="header-navbar h-100">
-                <a class="navbar-brand" href="#"><b>D</b><span>DengFei</span></a>
+                <a  class="navbar-brand" href="#home"><b>D</b><span>DengFei</span></a>
                 <nav class="navbar menu-list">
                     <ul class="list-group text-center" id="menu">
                         <li class="list-group-item">
@@ -597,40 +597,40 @@
                                     <h4 class="m-0">Get In Touch !</h4>
                                     <div class="custom-form">
                                         <div id="message"></div>
-                                        <form>
+                                        <form action="mailto:576660756@qq.com">
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group position-relative">
-                                                        <label>Your Name <span class="text-danger">*</span></label>
+                                                        <label>姓名 <span class="text-danger">*</span></label>
                                                         <i class="mdi mdi-account ml-3 icons"></i>
                                                         <input name="name" id="name" type="text" class="form-control pl-5" placeholder="First Name :" required>
                                                     </div>
                                                 </div><!--end col-->
                                                 <div class="col-md-6">
                                                     <div class="form-group position-relative">
-                                                        <label>Your Email <span class="text-danger">*</span></label>
+                                                        <label>邮箱 <span class="text-danger">*</span></label>
                                                         <i class="mdi mdi-email ml-3 icons"></i>
-                                                        <input name="email" id="email" type="email" class="form-control pl-5" placeholder="Your email :" required>
+                                                        <input name="email" id="email" type="email" class="form-control pl-5" placeholder="邮箱 :" required>
                                                     </div>
                                                 </div><!--end col-->
                                                 <div class="col-md-12">
                                                     <div class="form-group position-relative">
-                                                        <label>Subject</label>
+                                                        <label>标题</label>
                                                         <i class="mdi mdi-book ml-3 icons"></i>
-                                                        <input name="subject" id="subject" type="text" class="form-control pl-5" placeholder="Subject">
+                                                        <input name="title" id="title" type="text" class="form-control pl-5" placeholder="标题">
                                                     </div>
                                                 </div><!--end col-->
                                                 <div class="col-md-12">
                                                     <div class="form-group position-relative">
-                                                        <label>Comments</label>
+                                                        <label>内容</label>
                                                         <i class="mdi mdi-comment-text-outline ml-3 icons"></i>
-                                                        <textarea name="comments" id="comments" rows="4" class="form-control pl-5" placeholder="Your Message :"></textarea>
+                                                        <textarea name="comments" id="comments" rows="4" class="form-control pl-5" placeholder="请输入 :"></textarea>
                                                     </div>
                                                 </div>
                                             </div><!--end row-->
                                             <div class="row">
                                                 <div class="col-sm-12 text-center">
-                                                    <input type="submit" name="send" class="btn btn-hover send-btn btn-block" value="Send Message">
+                                                    <input type="submit" name="send" class="btn btn-hover send-btn btn-block" value="发送">
                                                     <div id="simple-msg"></div>
                                                 </div><!--end col-->
                                             </div><!--end row-->
