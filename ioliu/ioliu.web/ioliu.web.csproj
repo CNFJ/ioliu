@@ -289,6 +289,15 @@
     <None Include="wwwroot\resume\js\particles.js" />
     <None Include="wwwroot\resume\js\popper.min.js" />
     <None Include="wwwroot\resume\js\typed.min.js" />
+    <None Include="wwwroot\timeLine\css\style.css.map" />
+    <None Include="wwwroot\timeLine\css\style.scss" />
+    <None Include="wwwroot\timeLine\css\_animate.scss" />
+    <None Include="wwwroot\timeLine\css\_media.scss" />
+    <None Include="wwwroot\timeLine\fonts\icomoon.svg" />
+    <None Include="wwwroot\timeLine\js\jquery-1.11.0.min.js" />
+    <None Include="wwwroot\timeLine\js\script.js" />
+    <None Include="wwwroot\timeLine\js\timeLine.js" />
+    <None Include="wwwroot\timeLine\js\timeLine.min.js" />
   </ItemGroup>
 
   <ItemGroup>

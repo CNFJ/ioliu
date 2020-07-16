@@ -29,6 +29,8 @@
     @*<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600&display=swap" rel="stylesheet">*@
     <!-- Custom  CSS -->
     <link rel="stylesheet" href="~/resume/css/style.css">
+    <script src="~/resume/js/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" media="all" href="~/resume/css/bootstrap-glyphicons.css">
 </head>
 
 <body>
@@ -69,19 +71,19 @@
                         <li class="list-group-item">
                             <a href="#services">
                                 <span class="menu-icon mx-auto"><i class="mdi mdi-briefcase-outline"></i></span>
-                                <span>服务</span>
+                                <span>时间轴</span>
                             </a>
                         </li>
                         <li class="list-group-item">
                             <a href="#portfolio">
                                 <span class="menu-icon mx-auto"><i class="mdi mdi-grid-large"></i></span>
-                                <span>项目</span>
+                                <span>工具</span>
                             </a>
                         </li>
                         <li class="list-group-item">
                             <a href="#client">
                                 <span class="menu-icon mx-auto"><i class="mdi mdi-chart-bubble"></i></span>
-                                <span>客户</span>
+                                <span>联系人</span>
                             </a>
                         </li>
                         <li class="list-group-item">
@@ -167,36 +169,48 @@
                             <div class="col-lg-4 col-md-6">
                                 <div class="expert-box text-center">
                                     <img src="~/resume/images/aboutus/分析指挥.svg" class="img-fluid" alt="" />
-                                    <h3>应急指挥系统</h3>
-                                    <p class="mb-0">Lorem ipsum dolor sit amet consectetuer adipiscing elit aenean commodo ligula eget.</p>
+                                    <h3>公交应急指挥系统</h3>
+                                    <p class="mb-0">角色：开发工程师.</p>
+                                    <p>平台：C/S</p>
+                                    <p>工作内容：大华摄像头集成，矢量地图控件集成和一些业务功能开发</p>
+
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-6">
                                 <div class="expert-box text-center">
-                                    <img src="~/resume/~/resume/images/aboutus/数据中心.svg" class="img-fluid" alt="" />
+                                    <img src="~/resume/images/aboutus/数据中心.svg" class="img-fluid" alt="" />
                                     <h3>数据交换中心系统</h3>
-                                    <p class="mb-0">Lorem ipsum dolor sit amet consectetuer adipiscing elit aenean commodo ligula eget.</p>
+                                    <p class="mb-0">角色：开发工程师.</p>
+                                    <p>平台：C/S</p>
+                                    <p>工作内容：基本业务功能开发</p>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-6">
                                 <div class="expert-box text-center">
                                     <img src="~/resume/images/aboutus/RFID标签日志.svg" class="img-fluid" alt="" />
-                                    <h3>RFID扫描系统</h3>
-                                    <p class="mb-0">Lorem ipsum dolor sit amet consectetuer adipiscing elit aenean commodo ligula eget.</p>
+                                    <h3>牦牛交易系统</h3>
+                                    <p>平台：C/S</p>
+                                    <p class="mb-0">角色：开发工程师.</p>
+                                    <p>工作内容：地磅数据接入，RFID数据接入和基本业务功能开发</p>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-6">
                                 <div class="expert-box text-center">
                                     <img src="~/resume/images/aboutus/摄像头.svg" class="img-fluid" alt="" />
                                     <h3>虚拟摄像头系统</h3>
-                                    <p class="mb-0">Lorem ipsum dolor sit amet consectetuer adipiscing elit aenean commodo ligula eget.</p>
+                                    <p class="mb-0">角色：开发工程师.</p>
+                                    <p>平台：C/S</p>
+                                    
+                                    <p> 工作内容：使用海康摄像头画面数据作为虚拟摄像头画面数据源</p>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-6">
                                 <div class="expert-box text-center">
                                     <img src="~/resume/images/aboutus/教育培训.svg" class="img-fluid" alt="" />
                                     <h3>在线教育考试平台</h3>
-                                    <p class="mb-0">Lorem ipsum dolor sit amet consectetuer adipiscing elit aenean commodo ligula eget.</p>
+                                    <p class="mb-0">角色：开发工程师.</p>
+                                    <p>平台：B/S</p>
+                                    <p> 工作内容：基本业务功能开发</p>
                                 </div>
                             </div>
                         </div>
@@ -213,66 +227,115 @@
             <div class="section-area">
                 <div class="section-content">
                     <div class="container">
-                        <div class="title-block mx-auto">
-                            <div class="section_title mb-4 text-center">
-                                <h2><span class="text-white">Our Services</span></h2>
-                                <p class="section_subtitle mx-auto text-light">this dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. this dolor sit amet.</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-6 col-12">
-                                <div class="service-box">
-                                    <div class="service-icon-box rounded-circle">
-                                        <p>01</p>
-                                        <i class="mdi mdi-camera-outline rounded-circle"></i>
+                        <ul class="timeline">
+                            <li><div class="tldate">Apr 2014</div></li>
+
+                            <li>
+                                <div class="tl-circ"></div>
+                                <div class="timeline-panel">
+                                    <div class="tl-heading">
+                                        <h4>Surprising Headline Right Here</h4>
+                                        <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 3 hours ago</small></p>
                                     </div>
-                                    <div class="service-content">
-                                        <h3>Shooting</h3>
-                                        <p>Inventore veritatis et quasi beata vitae dicta sunt explicabo. Neenms ipsam voluptatem voluptas</p>
-                                        <a href="#" class="service-btn">Raed More</a>
+                                    <div class="tl-body">
+                                        <p>Lorem Ipsum and such.</p>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-6 col-12">
-                                <div class="service-box">
-                                    <div class="service-icon-box rounded-circle">
-                                        <p>02</p>
-                                        <i class="mdi mdi-image-edit-outline rounded-circle"></i>
+                            </li>
+
+                            <li class="timeline-inverted">
+                                <div class="tl-circ"></div>
+                                <div class="timeline-panel">
+                                    <div class="tl-heading">
+                                        <h4>Breaking into Spring!</h4>
+                                        <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 4/07/2014</small></p>
                                     </div>
-                                    <div class="service-content">
-                                        <h3>Editing</h3>
-                                        <p>Inventore veritatis et quasi beata vitae dicta sunt explicabo. Neenms ipsam voluptatem voluptas</p>
-                                        <a href="#" class="service-btn">Raed More</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-12">
-                                <div class="service-box">
-                                    <div class="service-icon-box rounded-circle">
-                                        <p>03</p>
-                                        <i class="mdi mdi-google-street-view rounded-circle"></i>
-                                    </div>
-                                    <div class="service-content">
-                                        <h3>Modeling</h3>
-                                        <p>Inventore veritatis et quasi beata vitae dicta sunt explicabo. Neenms ipsam voluptatem voluptas</p>
-                                        <a href="#" class="service-btn">Raed More</a>
+                                    <div class="tl-body">
+                                        <p>Hope the weather gets a bit nicer...</p>
+
+                                        <p>Y'know, with more sunlight.</p>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-6 col-12">
-                                <div class="service-box">
-                                    <div class="service-icon-box rounded-circle">
-                                        <p>04</p>
-                                        <i class="mdi mdi-image-frame rounded-circle"></i>
+                            </li>
+
+                            <li><div class="tldate">Mar 2014</div></li>
+
+                            <li>
+                                <div class="tl-circ"></div>
+                                <div class="timeline-panel">
+                                    <div class="tl-heading">
+                                        <h4>New Apple Device Release Date</h4>
+                                        <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 3/22/2014</small></p>
                                     </div>
-                                    <div class="service-content">
-                                        <h3>Weddings</h3>
-                                        <p>Inventore veritatis et quasi beata vitae dicta sunt explicabo. Neenms ipsam voluptatem voluptas</p>
-                                        <a href="#" class="service-btn">Raed More <i class="fa fa-arrow-right"></i></a>
+                                    <div class="tl-body">
+                                        <p>In memory of Steve Jobs.</p>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
+                            </li>
+                            <li class="timeline-inverted">
+                                <div class="timeline-panel">
+                                    <div class="tl-heading">
+                                        <h4>No icon here</h4>
+                                        <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 3/16/2014</small></p>
+                                    </div>
+                                    <div class="tl-body">
+                                        <p>Here you'll find some beautiful photography for your viewing pleasure, courtesy of <a href="http://lorempixel.com/">lorempixel</a>.</p>
+
+                                        <p><img src="http://lorempixel.com/600/300/nightlife/" alt="lorem pixel"></p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="tl-circ"></div>
+                                <div class="timeline-panel">
+                                    <div class="tl-heading">
+                                        <h4>Some Important Date!</h4>
+                                        <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 3/03/2014</small></p>
+                                    </div>
+                                    <div class="tl-body">
+                                        <p>Write up a quick summary of the event.</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="timeline-panel noarrow">
+                                    <div class="tl-heading">
+                                        <h4>Secondary Timeline Box</h4>
+                                        <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 3/01/2014</small></p>
+                                    </div>
+                                    <div class="tl-body">
+                                        <p>This might be a follow-up post with related info. Maybe we include some extra links, tweets, user comments, photos, etc.</p>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li><div class="tldate">Feb 2014</div></li>
+
+                            <li class="timeline-inverted">
+                                <div class="tl-circ"></div>
+                                <div class="timeline-panel">
+                                    <div class="tl-heading">
+                                        <h4>The Winter Months</h4>
+                                        <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 02/23/2014</small></p>
+                                    </div>
+                                    <div class="tl-body">
+                                        <p>Gee time really flies when you're having fun.</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="tl-circ"></div>
+                                <div class="timeline-panel">
+                                    <div class="tl-heading">
+                                        <h4>Yeah we're pretty much done here</h4>
+                                        <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 02/11/2014</small></p>
+                                    </div>
+                                    <div class="tl-body">
+                                        <p>Wasn't this fun though?</p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -657,7 +720,7 @@
         <!-- End Contact -->
     </div>
     <!-- Javascript -->
-    <script src="~/resume/js/jquery.min.js"></script>
+  
     <script src="~/resume/js/popper.min.js"></script>
     <script src="~/resume/js/bootstrap.min.js"></script>
     <script src="~/resume/js/jquery.easing.min.js"></script>
