@@ -1,5 +1,6 @@
 ﻿using ioliu.domain;
 using ioliu.web.Sercers;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -45,6 +46,15 @@ namespace ioliu.web
            
             return View();
 
+        }
+        public IActionResult About()
+        {
+            return View();
+        }
+
+        public IActionResult Resume()
+        {
+            return View();
         }
         [HttpPost]
         public async Task< IActionResult> UPFile(List<IFormFile> files)
