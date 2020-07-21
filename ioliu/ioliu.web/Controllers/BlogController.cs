@@ -12,7 +12,7 @@ namespace ioliu.web.Controllers
         {
             return View();
         }
-        public async IActionResult Edit()
+        public  IActionResult Edit()
         {
             return View();
         }
