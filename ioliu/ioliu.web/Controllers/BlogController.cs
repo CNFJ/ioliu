@@ -14,7 +14,7 @@ namespace ioliu.web.Controllers
         }
         public async IActionResult Edit()
         {
-
+            return View();
         }
     }
 }
