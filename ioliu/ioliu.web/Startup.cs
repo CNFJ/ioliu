@@ -111,7 +111,7 @@ namespace ioliu.web
                 
                 route.MapRoute(
                     name:"default",
-                    template: "{controller=Home}/{action=index_v1}/{id?}"
+                    template: "{controller=Home}/{action=about}/{id?}"
                     );
                 
                

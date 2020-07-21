@@ -69,6 +69,15 @@
     <None Include="wwwroot\assets\js\jquery-3.4.1.min.js" />
     <None Include="wwwroot\assets\js\mapbox.init.js" />
     <None Include="wwwroot\assets\js\plugins.min.js" />
+    <None Include="wwwroot\editor\js\jquery.min.js" />
+    <None Include="wwwroot\editor\js\require.min.js" />
+    <None Include="wwwroot\editor\js\sea.js" />
+    <None Include="wwwroot\editor\js\seajs-main.js" />
+    <None Include="wwwroot\editor\js\zepto.min.js" />
+    <None Include="wwwroot\editor\php\cross-domain-upload.php" />
+    <None Include="wwwroot\editor\php\editormd.uploader.class.php" />
+    <None Include="wwwroot\editor\php\post.php" />
+    <None Include="wwwroot\editor\php\upload.php" />
     <None Include="wwwroot\HAdmin\css\plugins\blueimp\img\error.svg" />
     <None Include="wwwroot\HAdmin\css\plugins\blueimp\img\play-pause.svg" />
     <None Include="wwwroot\HAdmin\css\plugins\blueimp\img\video-play.svg" />

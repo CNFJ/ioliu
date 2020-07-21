@@ -47,12 +47,36 @@ namespace ioliu.web
             return View();
 
         }
+        public IActionResult Index_v2()
+        {
+
+
+
+            return View();
+
+        }
         public IActionResult About()
         {
             return View();
         }
 
         public IActionResult Resume()
+        {
+            return View();
+        }
+        public IActionResult Works()
+        {
+            return View();
+        }
+        public IActionResult Blogs()
+        {
+            return View();
+        }
+        public IActionResult Blog_Context()
+        {
+            return View();
+        }
+        public IActionResult Contact()
         {
             return View();
         }
