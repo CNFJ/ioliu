@@ -19,5 +19,9 @@ namespace ioliu.data
         public DbSet<Education> educations { get; set; }
         public DbSet<Work> works { get; set; }
         public DbSet<Img> imgs { get; set; }
+        public DbSet<Blog> blogs { get; set; }
+        public DbSet<Blog_Comment> blog_Comments { get; set; }
+        public DbSet<Blog_Tag> blog_Tags { get; set; }
+        public DbSet<Blog_Type> blog_Types { get; set; }
     }
 }

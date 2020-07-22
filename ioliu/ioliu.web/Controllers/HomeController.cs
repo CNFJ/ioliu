@@ -19,13 +19,15 @@ namespace ioliu.web
         private readonly IWorkServers<Work> workServers;
         private readonly IHostingEnvironment hostingEnvironment;
         private readonly IImgServers<Img> imgServers;
+        private readonly IBlogServers<Blog> blogServers;
 
-        public HomeController(ISystemUserServers<SystemUser> inResumeRepository,IWorkServers<Work> workServers,IHostingEnvironment hostingEnvironment,IImgServers<Img> imgServers)
+        public HomeController(ISystemUserServers<SystemUser> inResumeRepository,IWorkServers<Work> workServers,IHostingEnvironment hostingEnvironment,IImgServers<Img> imgServers,IBlogServers<Blog> blogServers)
         {
             this.inResumeRepository = inResumeRepository;
             this.workServers = workServers;
             this.hostingEnvironment = hostingEnvironment;
             this.imgServers = imgServers;
+            this.blogServers = blogServers;
         }
 
       
@@ -70,7 +72,8 @@ namespace ioliu.web
         }
         public IActionResult Blogs()
         {
-            return View();
+           IEnumerable<Blog> blogs = blogServers.GetBlogs();
+            return View(blogs);
         }
         public IActionResult Blog_Context()
         {

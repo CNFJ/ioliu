@@ -55,6 +55,7 @@ namespace ioliu.web
             services.AddScoped<ISystemUserServers<SystemUser>, InSystemUserRepository>();
             services.AddScoped<IWorkServers<Work>, InWorkRepository>();
             services.AddScoped<IImgServers<Img>,InImgRepository>();
+            services.AddScoped<IBlogServers<Blog>, InBlogRepository>();
             services.AddAuthorization(options =>
             {
                 options.AddPolicy("仅限管理员", policy => policy.RequireRole("Administrators"));

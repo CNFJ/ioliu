@@ -19,6 +19,129 @@ namespace ioliu.data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("ioliu.domain.Blog", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("BlogAddTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("BlogAddUser")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("BlogBrowse")
+                        .HasColumnType("int");
+
+                    b.Property<string>("BlogContent")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("BlogLike")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("BlogModificationTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("BlogName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("BlogReply")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Tags")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("blogs");
+                });
+
+            modelBuilder.Entity("ioliu.domain.Blog_Comment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Blog_Comment_ParentId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Blog_Id")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CommentAddTime")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CommentAddUser")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CommentContent")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("CommentLike")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CommentModificationTime")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("blog_Comments");
+                });
+
+            modelBuilder.Entity("ioliu.domain.Blog_Tag", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Blog_Tag_Alias")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Blog_Tag_Content")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Blog_Tag_Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("blog_Tags");
+                });
+
+            modelBuilder.Entity("ioliu.domain.Blog_Type", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Blog_Type_Alias")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Blog_Type_Context")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Blog_Type_Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Blog_Type_ParentId")
+                        .HasColumnType("int");
+
+                    b.HasKey("id");
+
+                    b.ToTable("blog_Types");
+                });
+
             modelBuilder.Entity("ioliu.domain.Education", b =>
                 {
                     b.Property<int>("id")
@@ -78,7 +201,6 @@ namespace ioliu.data.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("GroupName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("imgName")
