@@ -66,7 +66,7 @@ namespace ioliu.web.Controllers
         public  async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index_v2", "Home");
         }
         public IActionResult AccessDenied()
         {

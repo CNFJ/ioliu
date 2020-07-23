@@ -27,6 +27,13 @@ namespace ioliu.web.Controllers
 
             return View();
         }
+        [Authorize]
+        public ActionResult Home()
+        {
+
+
+            return Content("我的首页");
+        }
 
         public IActionResult PersonalInformation()
         {
