@@ -52,9 +52,10 @@ namespace ioliu.web
         public IActionResult Index_v2()
         {
 
+            ViewBag.Title = "邓飞_主页";
 
-
-            return View();
+            IEnumerable<Blog> blogs = blogServers.GetBlogs();
+            return View(blogs);
 
         }
         public IActionResult About()

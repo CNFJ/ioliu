@@ -35,7 +35,7 @@ namespace ioliu.web.Controllers
                 var result = await _signInManager.PasswordSignInAsync(user, systemUser.PasswordHash, false, false);
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Admin");
                 }
             }
             return View(systemUser);
